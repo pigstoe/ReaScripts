@@ -1,5 +1,5 @@
 -- Description: Duplicate media item
--- Version: 1.0
+-- Version: 1.0.1
 -- Author: pigstoe
 -- Website: http://blog.naver.com/pigstoe83
 
