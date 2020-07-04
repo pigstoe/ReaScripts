@@ -1,5 +1,5 @@
 -- Description: Duplicate media item
--- Version: 1.0.1
+-- Version: 1.0.2
 -- Author: pigstoe
 -- Website: http://blog.naver.com/pigstoe83
 
@@ -35,6 +35,7 @@ function Main()
   local len_nudge = div_e - div_s
   reaper.ApplyNudge(0, 0, 5, 1, len_nudge , 0, 1)   
   reaper.SetEditCurPos(div_e + len_nudge, true, false)
+  reaper.SetCursorContext(1, nil)
 end
 
 reaper.PreventUIRefresh(1)
