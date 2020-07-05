@@ -1,5 +1,5 @@
 -- Description: Toggle selection of items on selected track
--- Version: 1.0.2
+-- Version: 1.0.3
 -- Author: pigstoe
 -- Website: http://blog.naver.com/pigstoe83
 
@@ -10,10 +10,8 @@ function Main()
   if track == nil then return end
   
   local _, chunk = reaper.GetTrackStateChunk(track, "", false)
-  for iguid in chunk:gmatch("IGUID (.-)\n") do
-    local item = reaper.BR_GetMediaItemByGUID(0, iguid)
-    reaper.SetMediaItemSelected(item, true)
-  end
+  chunk = chunk:gsub("SEL 0", "SEL 1")
+  reaper.SetTrackStateChunk(track, chunk, false)
   
   reaper.SetCursorContext(1, nil)
 end
