@@ -1,5 +1,5 @@
 -- Description: Duplicate media item
--- Version: 1.0.2
+-- Version: 1.0.3
 -- Author: pigstoe
 -- Website: http://blog.naver.com/pigstoe83
 
@@ -24,7 +24,7 @@ function Main()
   
   local div_s = reaper.BR_GetClosestGridDivision(pos_s)
   if div_s > pos_s then
-    div_s = reaper.BR_GetPrevGridDivision(pos_s)
+    div_s = reaper.BR_GetPrevGridDivision(div_s)
   end
   
   local div_e = reaper.BR_GetClosestGridDivision(pos_e) 
