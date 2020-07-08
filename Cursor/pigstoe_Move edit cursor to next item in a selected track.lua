@@ -1,5 +1,5 @@
 -- Description: Move edit cursor to next item in a selected track
--- Version: 1.0.2
+-- Version: 1.0.3
 -- Author: pigstoe
 -- Website: http://blog.naver.com/pigstoe83
 
@@ -11,20 +11,18 @@ function Main()
   
   local track = reaper.GetSelectedTrack(0, 0)
   local posc = reaper.GetCursorPosition()
-  local posn = math.huge
-  local posmax = 0
-  
+  local posn
   local _, chunk = reaper.GetTrackStateChunk(track, "", false)
-  for iguid in chunk:gmatch("IGUID (.-)\n") do
-    local item = reaper.BR_GetMediaItemByGUID(0, iguid)
-    local posi = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
-    if posi > posc then
-      posn = math.min(posn, posi)
+  
+  for posstr in chunk:gmatch("POSITION (.-)\n") do
+    local pos = tonumber(posstr)
+    if pos > posc then
+      posn = pos
+      break
     end
-    posmax = math.max(posmax, posi)
   end
   
-  if posn <= posmax then
+  if posn ~= nil then
     reaper.SetEditCurPos(posn, true, false)
     reaper.SetCursorContext(1, nil)
   end
