@@ -1,5 +1,5 @@
 -- Description: Toggle selection of item on a selected track and edit cursor
--- Version: 1.0.4
+-- Version: 1.0.5
 -- Author: pigstoe
 -- Website: http://blog.naver.com/pigstoe83
 
@@ -7,7 +7,7 @@
 
 function Main()
   local track = reaper.GetSelectedTrack(0, 0)
-  if track == nil then return end
+  if not track then return end
   
   local verror = 0.000001
   local posc = reaper.GetCursorPosition()
