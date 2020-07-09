@@ -1,11 +1,14 @@
 -- Description: Toggle selection of item on a selected track and edit cursor
--- Version: 1.0.5
+-- Version: 1.0.6
 -- Author: pigstoe
 -- Website: http://blog.naver.com/pigstoe83
 
 
 
 function Main()
+  local count_st = reaper.CountSelectedTracks(0)
+  if count_st ~= 1 then return end
+  
   local track = reaper.GetSelectedTrack(0, 0)
   if not track then return end
   
