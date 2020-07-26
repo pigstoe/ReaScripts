@@ -38,7 +38,7 @@ function Main()
     
     reaper.ReorderSelectedTracks(idx_last, 0)
   end
-  reaper.Undo_EndBlock("Set selected tracks to get out of folder track", 1)
+  reaper.Undo_EndBlock("Set selected tracks to be out from folder track", 1)
 end
 
 reaper.PreventUIRefresh(1)
