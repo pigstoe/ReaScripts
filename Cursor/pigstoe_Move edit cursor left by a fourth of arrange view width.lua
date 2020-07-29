@@ -1,5 +1,5 @@
 -- Description: Move edit cursor left by a fourth of arrange view width
--- Version: 1.0.2
+-- Version: 1.0.3
 -- Author: pigstoe
 -- Website: http://blog.naver.com/pigstoe83
 
@@ -21,5 +21,6 @@ end
 
 reaper.PreventUIRefresh(1)
 Main()
+reaper.defer(function() end)
 reaper.UpdateArrange()
 reaper.PreventUIRefresh(-1)
