@@ -1,5 +1,5 @@
 -- Description: Go to the track before previous 4 tracks
--- Version: 1.0.1
+-- Version: 1.0.2
 -- Author: pigstoe
 -- Website: http://blog.naver.com/pigstoe83
 
@@ -7,8 +7,9 @@
 
 function Main()
   local track = reaper.GetLastTouchedTrack()
-  local idx = reaper.CSurf_TrackToID(track, false)
+  if not track then return end
   
+  local idx = reaper.CSurf_TrackToID(track, false)
   local iter = 5
   if idx - iter < 1 then
     iter = idx - 1
